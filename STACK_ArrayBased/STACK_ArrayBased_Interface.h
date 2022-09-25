@@ -49,23 +49,33 @@ typedef enum
 
 #define STACK1_MAXSIZE   100
 
-typedef struct stack
+
+typedef struct
 {
-	StackPointerType_e      stackPtr          ;
+	u8*                   ptr_u8StackEntery ;
+	StackMaxSize_e        stack_capacity    ;
+	u32                   _u32SP            ;
 
-	void*                  vidPtrStackEntery        ;
 
-	StackDataType_e         stackEntry[1]     ;
+}Data_t;
 
-//	DS_ES_t       (*Init)( u8  u8_maxStackSize )         ;
-//	DS_ES_t       (*Push)( Stack_t*   StackRef  , int* ptrToElement )   ;
-//	DS_ES_t       (*Pup)(  Stack_t*   StackRef  , int* ptrToElement )    ;
+typedef struct u8_stack
+{
 
-	DS_ES_t       (*GetState)(DS_STACK_STATE_t*  State  );
+	Data_t   _u8StackData        ;
 
-}Stack_t;
+	//DS_ES_t  STACKArrBased_enuPush(Stack_t*   StackRef , int* ptrToElement )
 
-DS_ES_t  STACKArrBased_enuConstructor(Stack_t*  stackRef  , StackDataType_e  Cpy_enuStackEleType , StackMaxSize_e  Cpy_enuStackMaxSize );
+	DS_ES_t  (*u8Stack_PUSH)(Data_t*  ptr2stackRef , u8 Cpy_u8Element);
+	DS_ES_t  (*u8Stack_POP)(Data_t*  ptr2stackRef , u8* Cpy_u8Element);
+
+
+}_u8Stack_t;
+DS_ES_t  u8_STACKArrBased_enuConstructor(_u8Stack_t**  ptr2u8sStackRef   , StackMaxSize_e Cpy_enuStackCapacity);
+//DS_ES_t  u8_STACKArrBased_enuConstructor(Stack_u8Data_t**  stackRef   , StackMaxSize_e Cpy_enuStackCapacity , StackPointerType_e Cpy_enuSP );
+
+
+///DS_ES_t  STACKArrBased_enuConstructor(Stack_t*  stackRef  , StackDataType_e  Cpy_enuStackEleType , StackMaxSize_e  Cpy_enuStackMaxSize );
 
 
 #endif /* STACK_ARRAYBASED_STACK_ ARRAYBASED_INTERFACE_H_ */

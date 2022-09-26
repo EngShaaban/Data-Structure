@@ -13,24 +13,60 @@
 
 #include"STACK_ArrayBased/STACK_ArrayBased_Interface.h"
 
-_u8Stack_t* _prt2u8Stack1 =NULL   ;
-
-
 int main(void)
 {
-	u8 val = 0 ;
 
-	//DS_ES_t  u8_STACKArrBased_enuConstructor(_u8Stack_t**  ptr2u8sStackRef   , StackMaxSize_e Cpy_enuStackCapacity , StackPointerType_e Cpy_enuSP)
+	char val =0 ;
 
+	Stack_type stack;
+
+	Initialize (&stack);
+
+	printf("________push_________\n");
+	printf("sp = %d\n",stack.top);
+	Push ( 10, &stack);
+
+	printf("sp = %d\n",stack.top);
+	Push ( 11, &stack);
+
+	printf("sp = %d\n",stack.top);
+	Push ( 22, &stack);
+
+
+	printf("sp = %d\n",stack.top);
+	Push ( 55, &stack);
+
+	printf("sp = %d\n",stack.top);
+		Push ( 66, &stack);
+
+	printf("________pop_________\n");
+
+	Pop (&val, &stack);
 	printf("val=%d\n",val);
+	printf("sp = %d\n",stack.top);
 
-	u8_STACKArrBased_enuConstructor(&_prt2u8Stack1 , 100 );
 
-	_prt2u8Stack1->u8Stack_PUSH(&_prt2u8Stack1->_u8StackData , 30);
-
-	_prt2u8Stack1->u8Stack_POP(&_prt2u8Stack1->_u8StackData , &val);
-
+	Pop (&val, &stack);
 	printf("val=%d\n",val);
+	printf("sp = %d\n",stack.top);
+
+	Pop (&val, &stack);
+	printf("val=%d\n\n",val);
+	printf("sp = %d\n",stack.top);
+
+
+
+	Pop (&val, &stack);
+	printf("val=%d\n\n",val);
+	printf("sp = %d\n",stack.top);
+
+	Pop (&val, &stack);
+	printf("val=%d\n\n",val);
+
+
+
+
+
 
 }
 

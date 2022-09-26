@@ -18,50 +18,36 @@ int main(void)
 
 	char val =0 ;
 
+	char c = 11 ;
+
 	Stack_type stack;
 
 	Initialize (&stack);
 
 	printf("________push_________\n");
-	printf("sp = %d\n",stack.top);
-	Push ( 10, &stack);
 
-	printf("sp = %d\n",stack.top);
-	Push ( 11, &stack);
+	while(!Full(&stack))
+	{
+		Push ( c, &stack);
 
-	printf("sp = %d\n",stack.top);
-	Push ( 22, &stack);
+		printf("c=%d\n",c);
+		c += 11 ;
 
+	}
 
-	printf("sp = %d\n",stack.top);
-	Push ( 55, &stack);
+	printf("_________pop_________\n");
 
-	printf("sp = %d\n",stack.top);
-		Push ( 66, &stack);
-
-	printf("________pop_________\n");
-
-	Pop (&val, &stack);
-	printf("val=%d\n",val);
-	printf("sp = %d\n",stack.top);
+	while(!Empty(&stack))
+		{
 
 
-	Pop (&val, &stack);
-	printf("val=%d\n",val);
-	printf("sp = %d\n",stack.top);
+		Pop (&val, &stack);
 
-	Pop (&val, &stack);
-	printf("val=%d\n\n",val);
-	printf("sp = %d\n",stack.top);
+		printf("val=%d\n",val);
 
 
+		}
 
-	Pop (&val, &stack);
-	printf("val=%d\n\n",val);
-	printf("sp = %d\n",stack.top);
-
-	Pop (&val, &stack);
-	printf("val=%d\n\n",val);
 
 
 

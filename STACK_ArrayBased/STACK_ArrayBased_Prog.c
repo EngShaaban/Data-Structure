@@ -82,4 +82,61 @@ void   Pop (Item_type* valRef, Stack_type* sp)
 
 }
 
+void Top(Stack_type const* sp ,Item_type* itemRef )
+{
+	if( (sp != NULL) && (sp->top > 0))
+	{
+		*itemRef = sp->entery[sp->top-1];
+	}
+	else
+	{
+
+	}
+
+
+
+}
+u8 StackSize(Stack_type *sp)
+{
+
+	if(sp != NULL && (sp->top != 0 ))
+	{
+		return sp->top -1 ;
+	}
+	else
+	{
+		return sp->top ;
+	}
+}
+
+Clear(Stack_type * sp)
+{
+	if( sp != NULL)
+	{
+		sp->top  = 0 ;
+	}
+	else
+	{
+		//_report error
+	}
+}
+
+void TraverseStack( Stack_type const* sp  , void (*pf)(Item_type) )
+{
+	if( sp != NULL )
+	{
+
+		for(u8 counter = sp->top  ; counter != 0   ; counter-- )
+		{
+			(*pf)((sp->entery)[counter-1]);
+		}
+	}
+	else
+	{
+		//_report error
+	}
+
+
+}
+
 

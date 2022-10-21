@@ -13,12 +13,19 @@
 
 #include"STACK_ArrayBased/STACK_ArrayBased_Interface.h"
 
+void Display(Item_type  c )
+{
+	printf("c is:%d\n",c);
+}
+
 int main(void)
 {
 
 	char val =0 ;
 
 	char c = 11 ;
+
+	char itm = 0 ;
 
 	Stack_type stack;
 
@@ -35,10 +42,27 @@ int main(void)
 
 	}
 
+	printf("_________top#1_________\n");
+
+	 Top(&stack , &itm);
+
+	 printf("itm is:%d\n",itm);
+
+	 itm = 0 ;
+
+	printf("_________travers#1_________\n");
+
+	TraverseStack( &stack , Display );
+
+	printf("_________Clear________\n");
+
+	Clear(&stack);
+
+
 	printf("_________pop_________\n");
 
 	while(!Empty(&stack))
-		{
+	{
 
 
 		Pop (&val, &stack);
@@ -46,10 +70,18 @@ int main(void)
 		printf("val=%d\n",val);
 
 
-		}
+	}
+
+	printf("_________travers#2_________\n");
+
+	TraverseStack( &stack , Display );
 
 
+	printf("_________top#2_________\n");
 
+		 Top(&stack , &itm);
+
+		 printf("itm is:%d\n",itm);
 
 
 

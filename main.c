@@ -21,6 +21,7 @@ void Display(Item_type  c )
 int main(void)
 {
 
+	char var;
 	char val =0 ;
 
 	char c = 11 ;
